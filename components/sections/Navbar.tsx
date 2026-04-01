@@ -21,7 +21,7 @@ export function Navbar() {
         className="fixed inset-x-0 top-0 z-50 h-16 border-b backdrop-blur-md"
       >
         <div className="section-shell flex h-full items-center justify-between">
-          <a href="#" className="font-(--font-serif)] text-[22px] tracking-[0.12em] text-(--color-primary)]">
+          <a href="#" className="font-[var(--font-serif)] text-[22px] tracking-[0.12em] text-[var(--color-primary)]">
             POPULR
           </a>
           <div className="hidden md:block">
