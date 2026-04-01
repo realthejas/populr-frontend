@@ -49,12 +49,15 @@ export async function POST(req: NextRequest) {
     });
 
     if (error) {
-      console.error("[waitlist] insert failed", {
+      const logPayload: Record<string, unknown> = {
         code: error.code,
         message: error.message,
-        details: error.details,
-        hint: error.hint,
-      });
+      };
+      if (process.env.NODE_ENV === "development") {
+        logPayload.details = error.details;
+        logPayload.hint = error.hint;
+      }
+      console.error("[waitlist] insert failed", logPayload);
       if (error.code === "23505") {
         return NextResponse.json({ message: "Already registered" }, { status: 409 });
       }
